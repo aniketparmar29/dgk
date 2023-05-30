@@ -1,5 +1,14 @@
 const express = require('express');
 const mysql = require('mysql');
+const bodyParser = require('body-parser');
+const bcrypt = require('bcrypt');
+const jwt = require('jsonwebtoken');
+
+// ...
+
+const app = express();
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // Create MySQL connection pool
 const pool = mysql.createPool({
@@ -10,35 +19,53 @@ const pool = mysql.createPool({
   database: 'kdtoyikw_example'
 });
 
-const app = express();
+app.post('/signup', (req, res) => {
+  const { em_mo, username, password } = req.body;
+  const defaultRole = 'user'; // Set the default role here
 
-// Define a route to fetch and print data from MySQL
-app.get('/data', (req, res) => {
-  const query = 'SELECT * FROM user';
-
-  pool.getConnection((err, connection) => {
-    if (err) {
-      console.error('Error getting MySQL connection from pool:', err);
-      res.status(500).send('Error fetching data from MySQL');
-      return;
-    }
-
-    connection.query(query, (err, results) => {
-      connection.release(); // Release the connection back to the pool
-
-      if (err) {
-        console.error('Error executing MySQL query:', err);
-        res.status(500).send('Error fetching data from MySQL');
-        return;
+  // Check if the email or mobile already exists in the database
+  pool.query(
+    'SELECT * FROM user WHERE em_mo = ?',
+    [em_mo],
+    (error, results) => {
+      if (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Internal server error' });
       }
 
-      // Print the data
-      console.log(results);
+      if (results.length > 0) {
+        return res.status(409).json({ error: 'Email or mobile already exists' });
+      }
 
-      // Send the data as JSON response
-      res.json(results);
-    });
-  });
+      // Hash the password
+      bcrypt.hash(password, 10, (hashError, hashedPassword) => {
+        if (hashError) {
+          console.error(hashError);
+          return res.status(500).json({ error: 'Internal server error' });
+        }
+
+        // Save the user to the database with the default role
+        pool.query(
+          'INSERT INTO user (em_mo, username, password, role) VALUES (?, ?, ?, ?)',
+          [em_mo, username, hashedPassword, defaultRole],
+          (insertError, insertResults) => {
+            if (insertError) {
+              console.error(insertError);
+              return res.status(500).json({ error: 'Internal server error' });
+            }
+
+            // Generate JWT token
+            const token = jwt.sign({ userId: insertResults.insertId }, 'your_secret_key');
+
+            // Set the token as a cookie
+            res.cookie('token', token, { httpOnly: true });
+
+            return res.status(201).json({ token });
+          }
+        );
+      });
+    }
+  );
 });
 
 // Start the server
