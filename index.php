@@ -1,3 +1,6 @@
+<?php
+include('./dbconnection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,8 +12,8 @@
 </head>
 <body>
 
-   
-   <?php require './components/Nav.php'?>
+
+<?php include './Components/Nav.php'?>
 
    
    <?php 
@@ -22,9 +25,14 @@
 
    ?>
    <?php 
-   include "./Components/imgbox.php"
+   include "./Components/imgcard.php"
 
    ?>
+   <?php 
+   include "./Components/Slider.php"
+
+   ?>
+   
    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 </html>
