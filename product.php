@@ -28,15 +28,14 @@ if ($order !== '') {
 
 $result = $conn->query($sql);
 ?>
-
+<?php 
+require './Components/header.php'
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Products Page</title>
     <link rel="shortcut icon" href="./assets/Logo/Favicon.ico" type="image/x-icon">
-     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
-     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <?php include './components/Nav.php'?>
