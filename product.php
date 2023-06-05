@@ -34,11 +34,12 @@ $result = $conn->query($sql);
 <head>
     <title>Products Page</title>
     <link rel="shortcut icon" href="./assets/Logo/Favicon.ico" type="image/x-icon">
-
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.7/dist/tailwind.min.css" rel="stylesheet">
+     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css" rel="stylesheet" />
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <?php include './components/Navbar.php'?>
+    <?php include './components/Nav.php'?>
 
     <div class="container mx-auto p-4">
         <h1 class="text-2xl font-bold mb-4">Products</h1>
@@ -58,8 +59,8 @@ $result = $conn->query($sql);
                 <label for="product_category">Filter by Category:</label>
                 <select id="product_category" name="product_category" onchange="location = this.value;">
                     <option value="">All</option>
-                    <option value="?product_category=Agarbatti">Agarbatti</option>
-                    <option value="?product_category=Cosmetic">Cosmetics</option>
+                    <option value="?product_category=Agarbatti">summer</option>
+                    <option value="?product_category=Cosmetic">winter</option>
                 </select>
             </div>
         </div>
@@ -91,16 +92,10 @@ $result = $conn->query($sql);
                     <span class="text-gray-600">
                         <i class="fas fa-rupee-sign"></i> <?php echo $productPrice; ?>
                     </span>
-                    <div class="flex items-center space-x-2 absolute top-2 right-0">
-                        <button class="text-red-500  transition-colors duration-300"
-                            title="Add to Wishlist"
-                            onclick="addToWishlist(<?php echo $productID; ?>, '<?php echo $productName; ?>', '<?php echo $productImage[0]; ?>', '<?php echo $productWeight; ?>', '<?php echo $productPrice; ?>')">
-                            <i class="far fa-heart text-2xl hover:fa"></i>
-                        </button>
-                    </div>
-                    <button class="text-blue-500 hover:text-blue-600 transition-colors duration-300"
+                    
+                    <button class=" hover:text-blue-600 transition-colors duration-300"
                         title="Add to Cart">
-                        <i class="fas fa-shopping-cart text-2xl "></i>
+                        <i style="color:#F47F1F" class="fas fa-shopping-cart text-2xl "></i>
                     </button>
                 </div>
             </div>
