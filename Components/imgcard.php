@@ -1,5 +1,5 @@
 <?php 
-require './header.php'
+require './Components/header.php'
 ?>
 <!DOCTYPE html>
 <html lang="en">
