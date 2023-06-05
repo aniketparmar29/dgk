@@ -1,3 +1,6 @@
+<?php
+include('./dbconnection.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +14,7 @@
 <body>
 
 
-   <?php include './components/Nav.php'?>
+<?php include './Components/Nav.php'?>
 
    
    <?php 
