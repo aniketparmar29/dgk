@@ -39,10 +39,43 @@
         <li>
           <a href="./contect" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
         </li>
-        
+        <?php
+              if (isset($_SESSION['auth'])) {
+              ?>
+               
+               
+<button id="dropdownHoverButton" data-dropdown-toggle="dropdownHover" data-dropdown-trigger="hover" class="flex flex-row gap-x-1 items-center" type="button"><p class="nav-item"> <?= $_SESSION['username']; ?></p><i class="fa-solid fa-caret-down ps-1"></i></button>
+<!-- Dropdown menu -->
+<div id="dropdownHover" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700">
+    <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownHoverButton">
+      <li>
+        <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">My Order</a>
+      </li>
+      <?php
+if (isset($_SESSION['role']) && $_SESSION['role'] === "admin") {
+?>
+  <li>
+    <a href="./Admin" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Admin</a>
+  </li>
+<?php 
+}
+?>
+
+      <li>
+        <a href="./logout.php" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Logout</a>
+      </li>
+    </ul>
+</div>
+
+               <?php
+              } else {
+              ?>
         <li>
-          <a href="./login" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
+          <a href="./login.php" class="block py-2 pl-3 pr-4 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Login</a>
         </li>
+        <?php
+              }
+              ?>
       </ul>
     </div>
   </div>
