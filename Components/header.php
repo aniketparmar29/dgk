@@ -9,22 +9,6 @@
 </head>
 <body>
 
-   
-   <?php require './components/Nav.php'?>
-
-   
-   <?php 
-   include "./Components/Slider.php"
-
-   ?>
-   <?php 
-   include "./Components/card.php"
-
-   ?>
-   <?php 
-   include "./Components/imgbox.php"
-
-   ?>
    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js"></script>
 </body>
 </html>
