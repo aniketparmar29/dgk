@@ -16,7 +16,7 @@ include('./dbconnection.php');
 <body>
 
 
-<?php include './Components/Nav.php'?>
+   <?php include './Components/Nav.php'?>
 
    
    <?php 
@@ -32,7 +32,7 @@ include('./dbconnection.php');
 
    ?>
    <?php 
-   include "./Components/Slider.php"
+   include "./Components/card.php"
 
    ?>
    
