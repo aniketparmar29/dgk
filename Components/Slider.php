@@ -11,7 +11,7 @@ require './Components/header.php'
 </head>
 <body>
     
-   <div class="h-44 w-full" ></div>
+
     <div id="controls-carousel" class="relative w-full " data-carousel="slide">
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
