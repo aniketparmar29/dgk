@@ -1,3 +1,12 @@
+<?php
+    include "../dbconnection.php";
+    if (!isset($_SESSION['auth']) || $_SESSION['role'] !== "admin") {
+      echo "op";
+      header('Location: ../index.php');
+      exit(); // It's recommended to include an exit() statement after a header redirect
+  }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -50,7 +59,6 @@
                 </form>
             </div>
             <?php
-            include('../dbconnection.php');
 
             // Check if the form is submitted
             if (isset($_POST['add_product'])) {
