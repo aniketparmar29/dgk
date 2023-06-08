@@ -14,10 +14,10 @@ require './Components/header.php'
 
     <div id="controls-carousel" class="relative w-full " data-carousel="slide">
         <!-- Carousel wrapper -->
-        <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
+        <div class="relative h-56 overflow-hidden rounded-lg md:h-96 lg:h-96">
              <!-- Item 1 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="https://images.unsplash.com/photo-1468253926858-331ac6e1e97f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=870&q=80" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+                <img src="./Admin/slider/mangoslider.png" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
             </div>
             <!-- Item 2 -->
             <div class="hidden duration-700 ease-in-out" data-carousel-item="active">

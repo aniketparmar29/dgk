@@ -10,7 +10,7 @@ require './Components/header.php'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  
+    <title>Tailwind Starter Template - Nordic Shop: Tailwind Toolbox</title>
     <meta name="description" content="Free open source Tailwind CSS Store template">
     <meta name="keywords" content="tailwind,tailwindcss,tailwind css,css,starter template,free template,store template, shop layout, minimal, monochrome, minimalistic, theme, nordic">
     
@@ -78,15 +78,38 @@ require './Components/header.php'
     
            
 
-    <section class="bg-white py-8">
-
-        <div class="container mx-auto flex items-center flex-wrap pt-4 pb-12">
-
+    <section class="grid grid-cols-2 lg:grid-cols-4">
 
             <?php
 $sql = "SELECT * FROM categories";
 $result = $conn->query($sql);
 
+<<<<<<< HEAD
+while ($row = mysqli_fetch_assoc($result)) {
+    $productID = $row['id'];
+    $productName = $row['product_name'];
+    $productImage = explode(',', $row['product_images']);
+    $productStock = $row['product_stock'];
+    $productWeight = $row['product_weight'];
+    $productDesc = $row['product_desc'];
+    $product_category = $row['product_category'];
+    $productPrice = $row['product_price'];
+
+
+?>
+            <div class="w-full  p-3 flex flex-col  ">
+                <a href="#">
+                <?php if (!empty($productImage[0])) { ?>
+                <a href="singleProduct.php?id=<?php echo $productID; ?>">
+                    <img class="hover:grow hover:shadow-lg" src="./Admin/<?php echo $productImage[0]; ?>" alt="Product Image">
+                </a>
+            <?php } ?>
+                    <div class="pt-3 flex items-center justify-between ">
+                        <p class=""><?php echo $productName; ?></p>
+                        
+                    </div>
+                    <p class="pt-1 text-gray-900"><?php echo $productPrice; ?></p>
+=======
             <div class="w-full md:w-1/3 xl:w-1/4 p-6 flex flex-col">
                 <a href="#">
                     <img class="hover:grow hover:shadow-lg" src="https://images.unsplash.com/photo-1508423134147-addf71308178?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=400&h=400&q=80">
@@ -177,6 +200,7 @@ $result = $conn->query($sql);
                         </svg>
                     </div>
                     <p class="pt-1 text-gray-900">£9.99</p>
+>>>>>>> bf50c0d5cbf57eac8ab0df2265e4583633b6dcd7
                 </a>
             </div>
 
