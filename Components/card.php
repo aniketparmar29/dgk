@@ -71,57 +71,41 @@ require './Components/header.php'
     </style>
 
 </head>
-
 <body class="bg-white text-gray-600 work-sans leading-normal text-base tracking-normal">
-
-  
-    
-           
-
     <section class="grid grid-cols-2 lg:grid-cols-4">
+        <?php
+        $sql = "SELECT * FROM categories LIMIT 4"; // Fetch only the first four products
+        $result = $conn->query($sql);
 
-            <?php
-$sql = "SELECT * FROM categories";
-$result = $conn->query($sql);
-
-while ($row = mysqli_fetch_assoc($result)) {
-    $productID = $row['id'];
-    $productName = $row['product_name'];
-    $productImage = explode(',', $row['product_images']);
-    $productStock = $row['product_stock'];
-    $productWeight = $row['product_weight'];
-    $productDesc = $row['product_desc'];
-    $product_category = $row['product_category'];
-    $productPrice = $row['product_price'];
-
-
-?>
-            <div class="w-full  p-3 flex flex-col  ">
+        while ($row = mysqli_fetch_assoc($result)) {
+            $productID = $row['id'];
+            $productName = $row['product_name'];
+            $productImage = explode(',', $row['product_images']);
+            $productStock = $row['product_stock'];
+            $productWeight = $row['product_weight'];
+            $productDesc = $row['product_desc'];
+            $product_category = $row['product_category'];
+            $productPrice = $row['product_price'];
+        ?>
+            <div class="w-full  p-3 flex flex-col">
                 <a href="#">
-                <?php if (!empty($productImage[0])) { ?>
-                <a href="singleProduct.php?id=<?php echo $productID; ?>">
-                    <img class="hover:grow hover:shadow-lg" src="./Admin/<?php echo $productImage[0]; ?>" alt="Product Image">
-                </a>
-            <?php } ?>
-                    <div class="pt-3 flex items-center justify-between ">
+                    <?php if (!empty($productImage[0])) { ?>
+                        <a href="singleProduct.php?id=<?php echo $productID; ?>">
+                            <img class="hover:grow hover:shadow-lg" src="./Admin/<?php echo $productImage[0]; ?>" alt="Product Image">
+                        </a>
+                    <?php } ?>
+                    <div class="pt-3 flex items-center justify-between">
                         <p class=""><?php echo $productName; ?></p>
-                        
                     </div>
                     <p class="pt-1 text-gray-900"><?php echo $productPrice; ?></p>
                 </a>
             </div>
-
-            </div>
         <?php
         }
-    mysqli_free_result($result);
-    mysqli_close($conn);
-    ?>
-
+            mysqli_free_result($result);
+            mysqli_close($conn);
+        ?>
     </section>
-
-    
-
 </body>
 
 </html>
