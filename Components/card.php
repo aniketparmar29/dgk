@@ -87,7 +87,7 @@ require './Components/header.php'
             $product_category = $row['product_category'];
             $productPrice = $row['product_price'];
         ?>
-            <div class="w-full  p-3 flex flex-col">
+            <div class="w-full  p-3 flex flex-col hover:grow hover:shadow-lg">
                 <a href="#">
                     <?php if (!empty($productImage[0])) { ?>
                         <a href="singleProduct.php?id=<?php echo $productID; ?>">
