@@ -30,7 +30,12 @@ include('./dbconnection.php');
    include "./Components/imgcard.php"
 
    ?>
+   <?php 
+   include "./Components/imgad.php"
+
+   ?>
     
    
 </body>
+
 </html>
