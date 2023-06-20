@@ -25,7 +25,7 @@ require './Components/header.php'
             display: block;
         }
         
-        .hover\:grow {
+        .hover{
             transition: all 0.3s;
             transform: scale(1);
         }
