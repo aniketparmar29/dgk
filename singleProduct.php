@@ -131,7 +131,7 @@ if (isset($_GET['id'])) {
         <?php }
     }  ?>
 
-    <button class="text-white rounded-lg p-4 transition-colors duration-300 flex flex-row justify-between w-40" style="background-color: rgb(101 163 13);" title="Add to Cart">
+    <button onclick="addToCart('<?php echo $productID; ?>', '<?php echo $productName; ?>', '<?php echo $productPrice; ?>','<?php echo $productWeight; ?>');" class="text-white rounded-lg p-4 transition-colors duration-300 flex flex-row justify-between w-40" style="background-color: rgb(101 163 13);" title="Add to Cart">
         <span> Add To Cart</span><i class="fas fa-shopping-cart text-2xl "></i>
     </button>
 </div>
@@ -201,7 +201,29 @@ function decreaseWeight() {
 
     weightElement.textContent = weight;
 }
+function addToCart(productId, productName, productPrice,productWeight) {
+    var weightElement = document.querySelector('.wightop');
+    var weight = parseInt(weightElement.textContent);
+  var cartItems = localStorage.getItem('cartItems');
+  var cart = cartItems ? JSON.parse(cartItems) : {};
 
+  if (cart.hasOwnProperty(productId)) {
+    // Product already exists, increase the quantity by 1
+    cart[productId].quantity += weight;
+} else {
+    // Product doesn't exist, add it with quantity 1
+    cart[productId] = {
+        name: productName,
+        price: productPrice,
+        weight:productWeight,
+        quantity: weight
+    };
+}
+alert("Add To Cart")
+
+  // Save the updated cart in local storage
+  localStorage.setItem('cartItems', JSON.stringify(cart));
+}
 </script>
         
 

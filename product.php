@@ -41,7 +41,7 @@ require './Components/header.php'
     <?php include './components/Nav.php'?>
     
     <div class="container mx-auto p-4">
-        <h1 class="text-2xl font-bold mb-4">Products</h1>
+        <h1 class="text-2xl font-bold mb-4 ">Products</h1>
 
         <div class="flex mb-4">
             <div class="mr-2">
@@ -93,7 +93,7 @@ require './Components/header.php'
                     </span>
                     
                     <button class="hover:text-blue-600 transition-colors duration-300"
-                        onclick="addToCart('<?php echo $productID; ?>', '<?php echo $productName; ?>', '<?php echo $productPrice; ?>');"
+                        onclick="addToCart('<?php echo $productID; ?>', '<?php echo $productName; ?>', '<?php echo $productPrice; ?>','<?php echo $productWeight; ?>');"
                         title="Add to Cart">
                         <i style="color:#F47F1F" class="fas fa-shopping-cart text-2xl "></i>
                     </button>
@@ -111,7 +111,7 @@ require './Components/header.php'
 </body>
 </html>
 <script>
-function addToCart(productId, productName, productPrice) {
+function addToCart(productId, productName, productPrice,productWeight) {
   var cartItems = localStorage.getItem('cartItems');
   var cart = cartItems ? JSON.parse(cartItems) : {};
 
@@ -123,6 +123,7 @@ function addToCart(productId, productName, productPrice) {
     cart[productId] = {
         name: productName,
         price: productPrice,
+        weight:productWeight,
         quantity: 1
     };
 }
