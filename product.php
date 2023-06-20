@@ -92,7 +92,8 @@ require './Components/header.php'
                         <i class="fas fa-rupee-sign"></i> <?php echo $productPrice; ?>
                     </span>
                     
-                    <button class=" hover:text-blue-600 transition-colors duration-300"
+                    <button class="hover:text-blue-600 transition-colors duration-300"
+                        onclick="addToCart('<?php echo $productID; ?>', '<?php echo $productName; ?>', '<?php echo $productPrice; ?>');"
                         title="Add to Cart">
                         <i style="color:#F47F1F" class="fas fa-shopping-cart text-2xl "></i>
                     </button>
@@ -110,48 +111,24 @@ require './Components/header.php'
 </body>
 </html>
 <script>
-    function addToWishlist(productID, productName, productImage, productWeight, productPrice) {
-        // Get the product details
-        var productDetails = {
-            id: productID,
-            name: productName,
-            image: productImage,
-            weight: productWeight,
-            price: productPrice
-        };
+function addToCart(productId, productName, productPrice) {
+  var cartItems = localStorage.getItem('cartItems');
+  var cart = cartItems ? JSON.parse(cartItems) : {};
 
-        // Check if localStorage is available
-        if (typeof (Storage) !== "undefined") {
-            // Retrieve existing wishlist items from localStorage
-            var wishlistItems = localStorage.getItem("wishlist");
-            var wishlist = [];
+  if (cart.hasOwnProperty(productId)) {
+    // Product already exists, increase the quantity by 1
+    cart[productId].quantity += 1;
+} else {
+    // Product doesn't exist, add it with quantity 1
+    cart[productId] = {
+        name: productName,
+        price: productPrice,
+        quantity: 1
+    };
+}
+alert("Add To Cart")
 
-            if (wishlistItems !== null) {
-                wishlist = JSON.parse(wishlistItems);
-            }
-
-            // Check if the product is already in the wishlist
-            var isProductInWishlist = wishlist.some(function (item) {
-                return item.id === productID;
-            });
-
-            if (isProductInWishlist) {
-                // Product already in wishlist, display message to the user
-                alert("Product is already in the wishlist!");
-            } else {
-                // Add the product to the wishlist
-                wishlist.push(productDetails);
-
-                // Save the updated wishlist back to localStorage
-                localStorage.setItem("wishlist", JSON.stringify(wishlist));
-
-                // Provide feedback to the user
-                alert("Product added to wishlist!");
-            }
-        } else {
-            // localStorage is not available
-            alert("Your browser does not support localStorage")
-        }
-    }
-
+  // Save the updated cart in local storage
+  localStorage.setItem('cartItems', JSON.stringify(cart));
+}
 </script>
