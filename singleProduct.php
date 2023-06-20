@@ -60,7 +60,7 @@ if (isset($_GET['id'])) {
     </style>
 </head>
 <body>
-<?php include './components/Navbar.php'?>
+<?php include './Components/Nav.php'?>
 
 <?php
 // Assuming the product ID is passed as a URL parameter named 'id'
@@ -80,9 +80,9 @@ if (isset($_GET['id'])) {
         $productStock = $row['product_stock'];
         $productWeight = $row['product_weight'];
         $product_category = $row['product_category'];
+        $packging_type = $row['packging_type'];
         $productPrice = $row['product_price'];
 
-        // The rest of your code to display the product details goes here
         ?>
 
         <!-- HTML and PHP code for displaying the single product -->
@@ -102,11 +102,11 @@ if (isset($_GET['id'])) {
     <div class="mt-4 flex flex-col  justify-around items-center">
         <h2 class="text-2xl font-bold mb-10"><?php echo $productName; ?></h2>
         <div class="flex items-center mt-2">
-            <p class="text-lg mr-2">Weight: </p>
+            <p class="text-lg mr-2">Qty: </p>
             <button class="text-blue-500 hover:text-blue-600 transition-colors duration-300" onclick="decreaseWeight()">
                 <i class="fas fa-minus"></i>
             </button>
-            <p class="text-lg wightop mx-2"><?php echo $productWeight; ?></p>
+            <p class="text-lg wightop mx-2">1</p>
             <button class="text-blue-500 hover:text-blue-600 transition-colors duration-300" onclick="increaseWeight()">
                 <i class="fas fa-plus"></i>
             </button>
@@ -115,13 +115,30 @@ if (isset($_GET['id'])) {
             <i class="fas fa-rupee-sign"></i> <?php echo $productPrice; ?>
         </span>
         <div class="flex flex-col justify-between items-center mt-4 gap-y-5">
-            
-              
-                <button class="text-white rounded-lg p-4 transition-colors duration-300 flex flex-row justify-between w-40" style="background-color: rgb(101 163 13);" title="Add to Cart">
-                    <span> Add To Cart</span><i class="fas fa-shopping-cart text-2xl "></i>
-                </button>
+        <div class="flex flex-col justify-between items-center mt-4 gap-y-5">
+        <div class="flex flex-col justify-between items-center mt-4 gap-y-5">
+    <?php 
+    // Check if $packging_type is not empty
+    if (!empty($packging_type)) {
+        // Explode the comma-separated string into an array
+        $packaging_types = explode(',', $packging_type);
+        
+        foreach ($packaging_types as $type) { ?>
+            <div>
+                <input type="radio" name="packaging_type" value="<?php echo $type; ?>" id="<?php echo $type; ?>">
+                <label for="<?php echo $type; ?>"><?php echo $type; ?></label>
             </div>
-        </div>
+        <?php }
+    }  ?>
+
+    <button class="text-white rounded-lg p-4 transition-colors duration-300 flex flex-row justify-between w-40" style="background-color: rgb(101 163 13);" title="Add to Cart">
+        <span> Add To Cart</span><i class="fas fa-shopping-cart text-2xl "></i>
+    </button>
+</div>
+
+</div>
+
+
     </div>
 </div>
 
@@ -161,16 +178,8 @@ if (isset($_GET['id'])) {
     var weightElement = document.querySelector('.wightop');
     var weight = parseInt(weightElement.textContent);
 
-    if (weight === 100) {
-        weight = 250;
-    } else if (weight === 250) {
-        weight = 500;
-    } else if (weight === 500) {
-        weight = 1;
-    } else {
-        weight++;
-    }
-
+    weight++;
+    
     weightElement.textContent = weight;
 }
 
@@ -178,16 +187,10 @@ function decreaseWeight() {
     var weightElement = document.querySelector('.wightop');
     var weight = parseInt(weightElement.textContent);
 
-    if (weight === 100) {
-        alert("Minimum order should be 100 Grams")
+    if (weight === 1) {
+        alert("Minimum order should be 1 kg")
         return;
 
-    } else if (weight === 250) {
-        weight = 100;
-    } else if (weight === 500) {
-        weight = 250;
-    } else if (weight === 1) {
-        weight = 500;
     } else if (weight === 2) {
         weight = 1;
     } else if (weight === 3) {
@@ -199,7 +202,7 @@ function decreaseWeight() {
     weightElement.textContent = weight;
 }
 
-
+</script>
         
 
            
