@@ -1,39 +1,147 @@
-<?php 
-require './Components/header.php'
-?>
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.tailwindcss.com" rel="stylesheet">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <!-- Include Tailwind CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.16/dist/tailwind.min.css" rel="stylesheet">
+  <!-- Include Animate.css for animations -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <!-- Custom styles -->
+  <style>
+    /* Add your custom styles here */
+  </style>
 </head>
-<?php include './Components/Nav.php'?>
-<div class="h-screen overflow-hidden flex items-center justify-center" style="background: #edf2f7;">
-    <style>@import url(https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css);</style>
-<div class="min-w-screen min-h-screen  flex items-center pt-20 lg:-mt-6 md:pt-14 p-5 lg:p-10 overflow-hidden relative">
-    <div class="w-full max-w-6xl rounded bg-white shadow-xl p-5 lg:p-10 mx-auto text-gray-800 relative md:text-left">
-        <div class="md:flex items-center -mx-10">
-            <div class="w-full md:w-1/2 px-10 mb-10 md:mb-0">
-                <div class="relative">
-                    <img src="./Admin/Founder/founderpic.png" class="w-full relative z-10" alt="">
-                   
-                </div>
-            </div>
-            <div class="w-full md:w-1/2 px-10">
-                <div class="mb-10">
-                    <h1 class="font-bold text-2xl mb-1">Darshakbhai Kathrotiya </h1>
-                    <h1 class="font-bold  text-2xl mb-5"> Founder Of Jay Ho Village.. </h1>
-                    <p class="text-sm">Lorem ipsum dolor sit, amet consectetur adipisicing, elit. Eos, voluptatum dolorum! Laborum blanditiis consequatur, voluptates, sint enim fugiat saepe, dolor fugit, magnam explicabo eaque quas id quo porro dolorum facilis... <a href="#" class="opacity-50 text-gray-900 hover:opacity-100 inline-block text-xs leading-none border-b border-gray-900">MORE <i class="mdi mdi-arrow-right"></i></a></p>
-                </div>
-                
-            </div>
-        </div>
+
+<body class="bg-gray-200">
+  <header >
+    
+    <?php require './Components/Nav.php' ?>
+   
+  </header>
+  <style>
+    /* Add your custom styles here */
+    .bg-image {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .bg-image::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      filter: brightness(50%);
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes highlightAnimation {
+      0% {
+        color: #000; /* Start with black color */
+      }
+      50% {
+        color: #00ff00; /* Change color to green at 50% of animation */
+      }
+      100% {
+        color: #000; /* Revert back to black color at the end of animation */
+      }
+    }
+
+    @media (max-width: 767px) {
+      .bg-image::before {
+        background-image: url('./Admin/Founder/vadipic-mobile.jpg');
+      }
+    }
+
+    @media (min-width: 768px) {
+      .bg-image::before {
+        background-image: url('./Admin/Founder/vadipic.jpg');
+      }
+    }
+  </style>
+
+    <div class=" bg-image">
+    <section class="pt-44" >
+        <div class="container bbg-black bg-opacity-50  mx-auto px-4">
+            <div class="flex flex-col items-center mt-48">
+        <h1 class="text-4xl text-white font-bold text-center mb-8 animate__animated animate__fadeInDown">welcome to our organic store jay ho village!</h1>
+        <p class="text-white text-center mb-8 animate__animated animate__fadeInUp text-xl">At Jay Ho Village, we are passionate about promoting good health and well-being through the production of organic food. We believe that what you put into your body matters and can have a profound impact on your overall health and vitality. That's why we have dedicated ourselves to providing high-quality, organic food options that nourish both your body and the planet.</p>
+        
     </div>
 </div>
-
+</section>
 
 </div>
+  <section class="bg-white py-16">
+    <div class="container mx-auto px-4">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="flex flex-col justify-center items-center md:order-1">
+          
+        <img src='./Admin/Founder/founderpic.png' alt="About Us" class="w-70 rounded shadow-lg animate__animated animate__fadeInLeft" />
+        <div class="font-bold text-2xl mt-4">Mr.Darshakbhai Kathrotiya </div>
+        <div class="font-bold text-1.5xl">Founder of Jay Ho Village!</div>
+    </div>
+        <div class="md:order-2">
+          <h2 class="text-3xl font-bold mb-4 animate__animated animate__fadeInRight">Our Mission</h2>
+          <p class="text-gray-600 mb-8 animate__animated animate__fadeInRight">Our mission is to empower individuals to make healthier choices by offering a wide range of delicious, nutritious, and sustainably sourced organic food products. We strive to create a positive impact on the health of our customers and the environment by promoting organic farming practices and sustainable agriculture</p>
+          <p class="text-gray-600 mb-8 animate__animated animate__fadeInRight">Commitment to Organic: We are committed to the organic movement and adhere to stringent organic farming practices. Our organic food is free from harmful pesticides, synthetic fertilizers, and genetically modified organisms (GMOs). By choosing our products, you can be confident that you are consuming food in its purest and most natural form.</p>
+          <h2 class="text-3xl font-bold mb-4 animate__animated animate__fadeInRight">Our Vision</h2>
+          <p class="text-gray-600 animate__animated animate__fadeInRight">Our vision is to create a healthier world by offering organic food that not only nourishes the body but also protects the environment. We strive to be at the forefront of the organic farming movement, leading the way in sustainable and eco-friendly practices.We aim to save the Earth from harmful chemicals by using natural farming methods.</p>
+          <p class="text-gray-600 animate__animated animate__fadeInRight">Join us on this journey towards better health and a greener planet. Together, we can make a positive impact on our well-being and the future of generations to come.</p>
+          <p class="text-gray-600 animate__animated animate__fadeInRight">We hope you find inspiration and purpose in our mission to save the Earth from harmful chemicals and keep you healthy. Thank you for being a part of our community!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  <div class="relative text-center">
+  <h2 class="animate-highlight text-white " style="background-color: #65A30D " >Choose organic. Choose wellness. Choose Jay Ho Village!</h2>
+</div>
+
+  <section class="bg-gray-100 py-16">
+    <div class="container mx-auto px-4">
+      <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn">Our Team</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white rounded shadow-lg p-6 flex flex-col items-center animate__animated animate__fadeIn">
+          <img src="team-member1.jpg" alt="Team Member" class="w-32 h-32 rounded-full mb-4">
+          <h3 class="text-xl font-semibold mb-2">John Doe</h3>
+          <p class="text-gray-600">Co-Founder</p>
+        </div>
+        <div class="bg-white rounded shadow-lg p-6 flex flex-col items-center animate__animated animate__fadeIn">
+          <img src="team-member2.jpg" alt="Team Member" class="w-32 h-32 rounded-full mb-4">
+          <h3 class="text-xl font-semibold mb-2">Jane Smith</h3>
+          <p class="text-gray-600">Marketing Director</p>
+        </div>
+        <div class="bg-white rounded shadow-lg p-6 flex flex-col items-center animate__animated animate__fadeIn">
+          <img src="team-member3.jpg" alt="Team Member" class="w-32 h-32 rounded-full mb-4">
+          <h3 class="text-xl font-semibold mb-2">Mike Johnson</h3>
+          <p class="text-gray-600">Sales Manager</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="bg-gray-900 text-white py-4">
+    <div class="container mx-auto px-4">
+      <p class="text-center">&copy; 2023 Your Company. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Include the necessary scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/2.8.2/alpine.min.js"></script>
+  <!-- Add your custom JavaScript here -->
+
+</body>
+
 </html>
