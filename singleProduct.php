@@ -112,25 +112,11 @@ if (isset($_GET['id'])) {
             </button>
         </div>
         <span class="text-gray-600">
-            <i class="fas fa-rupee-sign"></i> <?php echo $productPrice; ?>
+            <i class="fas fa-rupee-sign"></i><p id="price"> <?php echo $productPrice; ?></p>
         </span>
         <div class="flex flex-col justify-between items-center mt-4 gap-y-5">
         <div class="flex flex-col justify-between items-center mt-4 gap-y-5">
-        <div class="flex flex-col justify-between items-center mt-4 gap-y-5">
-    <?php 
-    // Check if $packging_type is not empty
-    if (!empty($packging_type)) {
-        // Explode the comma-separated string into an array
-        $packaging_types = explode(',', $packging_type);
-        
-        foreach ($packaging_types as $type) { ?>
-            <div>
-                <input type="radio" name="packaging_type" value="<?php echo $type; ?>" id="<?php echo $type; ?>">
-                <label for="<?php echo $type; ?>"><?php echo $type; ?></label>
-            </div>
-        <?php }
-    }  ?>
-
+    
     <button onclick="addToCart('<?php echo $productID; ?>', '<?php echo $productName; ?>', '<?php echo $productPrice; ?>','<?php echo $productWeight; ?>');" class="text-white rounded-lg p-4 transition-colors duration-300 flex flex-row justify-between w-40" style="background-color: rgb(101 163 13);" title="Add to Cart">
         <span> Add To Cart</span><i class="fas fa-shopping-cart text-2xl "></i>
     </button>
@@ -179,8 +165,8 @@ if (isset($_GET['id'])) {
     var weight = parseInt(weightElement.textContent);
 
     weight++;
-    
     weightElement.textContent = weight;
+    updatePrice(weight);
 }
 
 function decreaseWeight() {
@@ -188,19 +174,22 @@ function decreaseWeight() {
     var weight = parseInt(weightElement.textContent);
 
     if (weight === 1) {
-        alert("Minimum order should be 1 kg")
+        alert("Minimum order should be 1 kg");
         return;
-
-    } else if (weight === 2) {
-        weight = 1;
-    } else if (weight === 3) {
-        weight = 2;
-    } else if (weight > 3) {
+    } else {
         weight--;
+        weightElement.textContent = weight;
+        updatePrice(weight);
     }
-
-    weightElement.textContent = weight;
 }
+
+function updatePrice(weight) {
+    var priceElement = document.getElementById('price');
+    var basePrice = <?php echo $productPrice; ?>;
+    var totalPrice = basePrice * weight;
+    priceElement.textContent = totalPrice;
+}
+
 function addToCart(productId, productName, productPrice,productWeight) {
     var weightElement = document.querySelector('.wightop');
     var weight = parseInt(weightElement.textContent);
