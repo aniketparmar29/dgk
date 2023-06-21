@@ -201,15 +201,17 @@ require './Components/header.php';
                 }
 
                 function updatePrice(weight) {
-                    var priceElement = document.querySelector('.product-price');
-                    var originalPrice = parseFloat(priceElement.textContent);
+    var priceElement = document.querySelector('.product-price');
+    var originalPrice = parseFloat(priceElement.textContent);
 
-                    // Assuming the price is calculated based on weight
-                    var newPrice = originalPrice * weight;
+    // Assuming the price is calculated based on weight
+    var unitPrice = originalPrice / parseFloat(productWeight);
+    var newPrice = unitPrice * weight;
 
-                    // Update the price with 2 decimal places
-                    priceElement.textContent = newPrice.toFixed(2);
-                }
+    // Update the price with 2 decimal places
+    priceElement.textContent = newPrice.toFixed(2);
+}
+
 
                 function addToCart(productId, productName, productPrice, productWeight) {
                     // Get the selected packaging type
