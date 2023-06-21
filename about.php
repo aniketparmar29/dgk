@@ -39,7 +39,7 @@
       background-repeat: no-repeat;
       background-size: cover;
       background-position: center;
-      filter: brightness(50%);
+      filter: brightness(60%);
     }
 
     .content {
@@ -114,7 +114,7 @@
       <h2 class="text-3xl font-bold text-center mb-8 animate__animated animate__fadeIn">Our Team</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="bg-white rounded shadow-lg p-6 flex flex-col items-center animate__animated animate__fadeIn">
-          <img src="team-member1.jpg" alt="Team Member" class="w-32 h-32 rounded-full mb-4">
+          <img src="./Admin/Founder/teammate1.jpg" alt="Team Member" class="w-36  mb-4">
           <h3 class="text-xl font-semibold mb-2">John Doe</h3>
           <p class="text-gray-600">Co-Founder</p>
         </div>

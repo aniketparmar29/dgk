@@ -34,10 +34,7 @@ include('./dbconnection.php');
    include "./Components/imgad.php"
 
    ?>
-   <?php 
-   include "./Components/newcard.php"
-
-   ?>
+ 
     
    
 </body>
