@@ -29,28 +29,28 @@
   <div class="container mx-auto p-4">
     <div class="grid grid-cols-2 gap-4">
       <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-        <img src="https://media.istockphoto.com/id/647288162/photo/mung-beans-in-a-bowl.jpg?s=612x612&w=0&k=20&c=58df_gZryIRIVKX-QOYR5hquyqFxhZrVaN8g5BzXfqE=" alt="Card 1" class="w-full">
+        <img src="" alt="Card 1" class="w-full">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Card 1</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
       <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-        <img src="https://media.istockphoto.com/id/647288162/photo/mung-beans-in-a-bowl.jpg?s=612x612&w=0&k=20&c=58df_gZryIRIVKX-QOYR5hquyqFxhZrVaN8g5BzXfqE=" alt="Card 2" class="w-full">
+        <img src="" alt="Card 2" class="w-full">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Card 2</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
       <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-        <img src="https://media.istockphoto.com/id/647288162/photo/mung-beans-in-a-bowl.jpg?s=612x612&w=0&k=20&c=58df_gZryIRIVKX-QOYR5hquyqFxhZrVaN8g5BzXfqE=" alt="Card 3" class="w-full">
+        <img src="" alt="Card 3" class="w-full">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Card 3</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </div>
       </div>
       <div class="bg-white shadow-lg rounded-lg overflow-hidden transform hover:scale-105 transition-transform duration-300">
-        <img src="https://media.istockphoto.com/id/647288162/photo/mung-beans-in-a-bowl.jpg?s=612x612&w=0&k=20&c=58df_gZryIRIVKX-QOYR5hquyqFxhZrVaN8g5BzXfqE=" alt="Card 4" class="w-full">
+        <img src="" alt="Card 4" class="w-full">
         <div class="p-4">
           <h3 class="text-xl font-semibold mb-2">Card 4</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

@@ -107,7 +107,10 @@ require './Components/header.php'
     ?>
     </div>
 </div>
+<?php 
+   include "./Components/footer.php"
 
+   ?>
 </body>
 </html>
 <script>

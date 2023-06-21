@@ -175,32 +175,32 @@ require './Components/header.php';
                 showImage(currentIndex);
 
                 function increaseWeight() {
-                    var weightElement = document.querySelector('.wightop');
-                    var weight = parseInt(weightElement.textContent);
+    var weightElement = document.querySelector('.wightop');
+    var weight = parseInt(weightElement.textContent);
 
-                    weight++;
+    weight++;
 
-                    weightElement.textContent = weight;
+    weightElement.textContent = weight;
 
-                    // Update the price based on the new weight
-                    updatePrice(weight);
-                }
+    // Update the price based on the new weight
+    updatePrice(weight);
+}
 
-                function decreaseWeight() {
-                    var weightElement = document.querySelector('.wightop');
-                    var weight = parseInt(weightElement.textContent);
+function decreaseWeight() {
+    var weightElement = document.querySelector('.wightop');
+    var weight = parseInt(weightElement.textContent);
 
-                    if (weight > 1) {
-                        weight--;
+    if (weight > 1) {
+        weight--;
 
-                        weightElement.textContent = weight;
+        weightElement.textContent = weight;
 
-                        // Update the price based on the new weight
-                        updatePrice(weight);
-                    }
-                }
+        // Update the price based on the new weight
+        updatePrice(weight);
+    }
+}
 
-                function updatePrice(weight) {
+function updatePrice(weight) {
     var priceElement = document.querySelector('.product-price');
     var originalPrice = parseFloat(priceElement.textContent);
 
@@ -211,6 +211,7 @@ require './Components/header.php';
     // Update the price with 2 decimal places
     priceElement.textContent = newPrice.toFixed(2);
 }
+
 
 
                 function addToCart(productId, productName, productPrice, productWeight) {
@@ -252,6 +253,10 @@ require './Components/header.php';
         }
     }
     ?>
+    <?php 
+   include "./Components/footer.php"
+
+   ?>
 
 </body>
 
