@@ -34,10 +34,16 @@ include('./dbconnection.php');
    include "./Components/imgad.php"
 
    ?>
+  <?php 
+   include "./Components/threecard.php"
+
+   ?> 
    <?php 
    include "./Components/footer.php"
 
    ?>
+ 
+   
  
     
    

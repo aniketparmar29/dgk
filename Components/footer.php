@@ -78,11 +78,7 @@
 <div class="ml-2">
     <div class="g-ytsubscribe" data-channelid="UCBKjWIpsq9NPYs7Yhsa_9xg" data-layout="full" data-count="default"></div>
 </div>
-              <a href="#" class="text-gray-500 hover:text-gray-900 dark:hover:text-white">
-              <i class="fa-brands fa-youtube"></i>
-                  <span class="sr-only">Twitter page</span>
-              </a>
-              
+             
           </div>
       </div>
     </div>
