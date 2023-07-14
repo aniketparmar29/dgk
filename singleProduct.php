@@ -86,11 +86,11 @@ if (isset($_GET['id'])) {
         ?>
 
         <!-- HTML and PHP code for displaying the single product -->
-<div class="flex flex-col lg:flex-row md:flex-row justify-around items-center bg-white shadow-lg rounded-lg p-6 relative overflow-hidden">
+<div class="flex flex-col lg:flex-row md:flex-row justify-around gap-x-2 items-center bg-white shadow-lg rounded-lg p-6 relative overflow-hidden">
     <div class="carousel relative">
         <?php foreach ($productImage as $key => $image) { ?>
             <img src="./Admin/<?php echo $image; ?>" alt="Product Image"
-                 class="<?php echo $key === 0 ? 'block' : 'hidden'; ?> transition duration-500 lg:w-96 md:w-96">
+                 class="<?php echo $key === 0 ? 'block' : 'hidden'; ?> transition duration-500 h-96 ">
         <?php } ?>
         <button class="carousel-btn carousel-prev" onclick="carouselPrevious()">
             <i class="fas fa-chevron-left"></i>
