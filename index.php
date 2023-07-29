@@ -26,18 +26,12 @@ include('./dbconnection.php');
    include "./Components/card.php"
 
    ?>
-   <?php 
-   include "./Components/newcard.php"
-
-   ?>
+  
    <?php 
    include "./Components/imgad.php"
 
    ?>
-  <?php 
-   include "./Components/threecard.php"
-
-   ?> 
+ 
    <?php 
    include "./Components/footer.php"
 

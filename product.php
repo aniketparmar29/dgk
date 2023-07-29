@@ -36,6 +36,7 @@ require './Components/header.php'
 <head>
     <title>Products Page</title>
     <link rel="shortcut icon" href="./assets/Logo/Favicon.ico" type="image/x-icon">
+    
 </head>
 <body>
     <?php include './components/Nav.php'?>
@@ -44,24 +45,26 @@ require './Components/header.php'
         <h1 class="text-2xl font-bold mb-4 ">Products</h1>
 
         <div class="flex mb-4">
-            <div class="mr-2">
-                <label for="sort">Sort by:</label>
-                <select id="sort" name="sort" onchange="location = this.value;">
-                    <option value="">None</option>
-                    <option value="?sort=price_htl">Price: High to Low</option>
-                    <option value="?sort=price_lth">Price: Low to High</option>
-                    <option value="?sort=weight_htl">Weight: High to Low</option>
-                    <option value="?sort=weight_lth">Weight: Low to High</option>
-                </select>
-            </div>
-            <div>
-                <label for="product_category">Filter by Category:</label>
-                <select id="product_category" name="product_category" onchange="location = this.value;">
-                    <option value="">All</option>
-                    <option value="?product_category=Agarbatti">summer</option>
-                    <option value="?product_category=Cosmetic">winter</option>
-                </select>
-            </div>
+    <div class="mr-2">
+        <label for="sort" class="text-green-600 font-bold">Sort by:</label>
+        <select id="sort" name="sort" onchange="location = this.value;" class="border border-green-500 bg-white rounded-md px-2 py-1">
+            <option value="">None</option>
+            <option value="?sort=price_htl">Price: High to Low</option>
+            <option value="?sort=price_lth">Price: Low to High</option>
+            <option value="?sort=weight_htl">Weight: High to Low</option>
+            <option value="?sort=weight_lth">Weight: Low to High</option>
+        </select>
+    </div>
+    <div>
+        <label for="product_category" class="text-green-600 font-bold">Filter by Category:</label>
+        <select id="product_category" name="product_category" onchange="location = this.value;" class="border border-green-500 bg-white rounded-md px-2 py-1">
+            <option value="">All</option>
+            <option value="?product_category=Agarbatti">Summer</option>
+            <option value="?product_category=Cosmetic">Winter</option>
+        </select>
+    </div>
+</div>
+
         </div>
 
         <div class="container mx-auto grid gap-8 grid-cols-2 lg:grid-cols-4">
@@ -78,26 +81,24 @@ require './Components/header.php'
 
         // Check if the product is already in the wishlist
         ?>
-                <div class="bg-white shadow-lg rounded-lg p-6 relative overflow-hidden">
+                <div class="bg-white shadow-xl rounded-lg p-6 relative overflow-hidden hover:shadow-inner flex flex-col justify-between">
             <?php if (!empty($productImage[0])) { ?>
                 <a href="singleProduct.php?id=<?php echo $productID; ?>">
-                    <img src="./Admin/<?php echo $productImage[0]; ?>" alt="Product Image">
+                    <img src="./Admin/<?php echo $productImage[0]; ?>" alt="Product Image" class="w-full h-48 object-cover">
                 </a>
             <?php } ?>
             <div class="mt-4">
                 <h2 class="text-xl font-semibold"><?php echo $productName; ?></h2>
-                <p class="text-lg mt-2">Weight:<?php echo $productWeight; ?></p>
-                <div class="flex justify-between items-center mt-4">
-                    <span class="text-gray-600">
-                        <i class="fas fa-rupee-sign"></i> <?php echo $productPrice; ?>
-                    </span>
-                    
-                    <button class="hover:text-blue-600 transition-colors duration-300"
-                        onclick="addToCart('<?php echo $productID; ?>', '<?php echo $productName; ?>', '<?php echo $productPrice; ?>','<?php echo $productWeight; ?>');"
-                        title="Add to Cart">
-                        <i style="color:#F47F1F" class="fas fa-shopping-cart text-2xl "></i>
-                    </button>
-                </div>
+                <p class="text-lg mt-2">Weight: <?php echo $productWeight; ?></p>
+                <p class="text-lg mt-2">Category: <?php echo $product_category; ?></p>
+            </div>
+            <div class="mt-auto flex justify-between pt-2">
+                <span class="text-gray-600 font-bold text-xl">
+                ₹<?php echo $productPrice; ?>
+                </span>
+                <button class="hover:text-blue-600 transition-colors duration-300" onclick="addToCart('<?php echo $productID; ?>', '<?php echo $productName; ?>', '<?php echo $productPrice; ?>','<?php echo $productWeight; ?>');" title="Add to Cart">
+                    <i style="color:green" class="fas fa-shopping-cart text-2xl"></i>
+                </button>
             </div>
         </div>
     <?php

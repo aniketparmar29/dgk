@@ -105,22 +105,22 @@ if (isset($_GET['id'])) {
         <h2 class="text-2xl font-bold mb-10"><?php echo $productName; ?></h2>
         <div class="flex items-center mt-2">
             <p class="text-lg mr-2">Qty: </p>
-            <button class="text-blue-500 hover:text-blue-600 transition-colors duration-300" onclick="decreaseWeight()">
+            <button class="text-green-500 hover:text-green-600 transition-colors duration-300 p-2 border-2 rounded-lg hover:border-green-600" onclick="decreaseWeight()">
                 <i class="fas fa-minus"></i>
             </button>
             <p class="text-lg wightop mx-2">1</p>
-            <button class="text-blue-500 hover:text-blue-600 transition-colors duration-300" onclick="increaseWeight()">
+            <button class="text-green-500 hover:text-green-600 transition-colors duration-300 p-2 border-2 rounded-lg hover:border-green-600" onclick="increaseWeight()">
                 <i class="fas fa-plus"></i>
             </button>
         </div>
-        <span class="text-gray-600">
-            <i class="fas fa-rupee-sign"></i><p id="price"> <?php echo $productPrice; ?></p>
+        <span class="text-gray-600 mt-4 text-lg font-bold">
+        <p id="price">₹ <?php echo $productPrice; ?></p>
         </span>
         <div class="flex flex-col justify-between items-center mt-4 gap-y-5">
         <div class="flex flex-col justify-between items-center mt-4 gap-y-5">
     
     <button onclick="addToCart('<?php echo $productID; ?>', '<?php echo $productName; ?>', '<?php echo $productPrice; ?>','<?php echo $productWeight; ?>');" class="text-white rounded-lg p-4 transition-colors duration-300 flex flex-row justify-between w-40" style="background-color: rgb(101 163 13);" title="Add to Cart">
-        <span> Add To Cart</span><i class="fas fa-shopping-cart text-2xl "></i>
+        <span class="text-lg"> Add To Cart</span><i class="fas fa-shopping-cart text-2xl "></i>
     </button>
 </div>
 
@@ -188,7 +188,7 @@ function decreaseWeight() {
 function updatePrice(weight) {
     var priceElement = document.getElementById('price');
     var basePrice = <?php echo $productPrice; ?>;
-    var totalPrice = basePrice * weight;
+    var totalPrice = "₹"+basePrice * weight;
     priceElement.textContent = totalPrice;
 }
 
